@@ -38,3 +38,8 @@ h1{
     height: 50px;
     border-radius: 8px;
 }
+.table{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}

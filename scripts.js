@@ -16,76 +16,58 @@ let turma91 = ['ALINI', 'FISCHER', 'ANA LIVIA', 'BRENDA', 'CAMILA', 'CAMILI', 'G
 'HERBERTH', 'JHOSEPH', 'JOÃO', 'JUAN', 'KETLYN', 'LIRIO', 'LUAN', 'LUANI', 'MIKAEL', 'NATHAN', 'NICOLY',
 'PEDRO H', 'PEDRO LUIS', 'REBECA', 'RIAN', 'THALYA', 'THIAGO', 'YASMIN']
 
-
+var Texto = "";
 document.getElementById("btnSubmit").onclick = function() {
     var name = 'fulano'
     var chooseClass;
-    let chooseStudent = Math.floor(Math.random() *( 35));
+ 
     var radios = document.getElementsByName("my-class");
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].value === "class71"){
-
-            if (chooseStudent >= turma71.length) {
-                name = 'sorteie de novo'
-                
-            }else{
-               
-               chooseClass = 'turma71';
-               name = turma71[chooseStudent]  
+            if (radios[i].checked) {
+            chooseClass = turma71;
             }
+            
 
         }else  if (radios[i].value === "class72"){
 
             if (radios[i].checked) {
+                chooseClass = turma72;
+            }
 
-                 if (chooseStudent >= turma72.length) {
-                name = 'sorteie de novo'
-               
-            }else{
-              
-               chooseClass = 'turma72';
-               name = turma72[chooseStudent]  
-            }
-            }
+                 
         }else  if (radios[i].value === "class73"){
 
             if (radios[i].checked) {
-                if (chooseStudent >= turma73.length) {
-                    name = 'sorteie de novo'
-                  
-                }else{
-                  
-                   chooseClass = 'turma73';
-                   name = turma73[chooseStudent]  
-                }
-            }
+                chooseClass = turma73;
+            }      
         }else  if (radios[i].value === "class74"){
 
             if (radios[i].checked) {
-                if (chooseStudent >= turma74.length) {
-                    name = 'sorteie de novo'
-                   
-                }else{
-                 
-                   chooseClass = 'turma74';
-                   name = turma74[chooseStudent]  
-                }
+                chooseClass = turma74;
+                
             }
         }else  if (radios[i].value === "class91"){
-
             if (radios[i].checked) {
-                if (chooseStudent >= turma91.length) {
-                    name = 'sorteie de novo'
-                   
-                }else{
-                   
-                   chooseClass = 'turma91';
-                   name = turma91[chooseStudent]  
-                }
-            }
+            
+            chooseClass = turma91;
         }
     }
     
-   
+        
+    }
+
+    let chooseStudent = Math.floor(Math.random() * chooseClass.length);
+    name = chooseClass[chooseStudent]
+
     document.getElementById("picker").innerHTML = name;
+    
+    Texto += "<tr>"
+    + "<td>" + chooseClass[chooseStudent] + "</td>"
+    
+    + "</tr>";
+    document.getElementById("demo").innerHTML = Texto;
+  
+   
 };
+
